@@ -94,7 +94,7 @@ class ProfilePhotoUploadView(APIView):
         profile_slug = slugify(profile.name)
         extension = photo.name.split('.')[-1]
 
-        return f"{profile_slug}-{unix_timestamp}-{extension}"
+        return f"{profile_slug}-{unix_timestamp}.{extension}"
 
     def put(self, request, id, format=None):
 
