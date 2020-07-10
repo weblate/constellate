@@ -100,7 +100,7 @@ class ProfilePhotoUploadView(APIView):
 
         # Passing in the extra_context means we have absolute urls, rather than relative
         # in the representation we send to the client
-        serializer = ProfilePicSerializer(data=request.data)
+        serializer = ProfilePicSerializer(data=request.data, context={'request': request})
         serializer.is_valid(raise_exception=True)
 
         profile = Profile.objects.get(pk=serializer.validated_data['id'])
