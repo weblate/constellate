@@ -17,6 +17,8 @@ from ..models import Profile
 
 from django.utils.text import slugify
 from django.urls import resolve
+from django.utils import timezone, dateformat
+
 
 from django.http import HttpRequest, QueryDict
 from rest_framework.utils.serializer_helpers import ReturnDict
@@ -84,6 +86,16 @@ class ProfilePhotoUploadView(APIView):
     """
     parser_classes = (MultiPartParser, FormParser)
 
+    def unique_filename(self, photo: ImageFile = None, profile: Profile = None):
+        """
+        Create a readable filename, that is also unique.
+        """
+        unix_timestamp = dateformat.format(timezone.now(), "U")
+        profile_slug = slugify(profile.name)
+        extension = photo.name.split('.')[-1]
+
+        return f"{profile_slug}-{unix_timestamp}-{extension}"
+
     def put(self, request, id, format=None):
 
         serializer = ProfilePicSerializer(data=request.data)
@@ -94,7 +106,7 @@ class ProfilePhotoUploadView(APIView):
 
         if profile_pic:
             img = ImageFile(profile_pic)
-            photo_path = f"{slugify(profile.name)}.png"
+            photo_path = self.unique_filename(img, profile)
             profile.photo.save(photo_path, img, save=True)
 
         return Response(ProfileSerializer(profile).data)
