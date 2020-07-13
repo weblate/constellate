@@ -102,7 +102,7 @@ export default {
         this.email
       } requested.<br/>
        Please check your email. <br/><br/>
-       You may close this window.`
+       You may close this window. <a href="/">Back to the main site</a>`
       this.email = ''
       this.requestSuccess = true
     },
