@@ -44,7 +44,7 @@
       <div class="fl w-70 w-20-m w-20-l mr3">         
         
         <img
-          v-if="hasPhoto()"
+          v-if="hasPhoto(profile)"
           :src="showPhoto()"
           class="supplied-photo b--light-gray ba w-100"
         />
@@ -125,6 +125,7 @@ import debugLib from 'debug'
 import marked from 'marked'
 import sanitizeHTML from 'sanitize-html'
 const debug = debugLib('cl8.ProfileDetail')
+import { hasPhoto } from '@/utils'
 
 Vue.component('v-gravatar', Gravatar)
 
@@ -192,13 +193,7 @@ export default {
     isVisible: function() {
       return this.profile.visible
     },
-    hasPhoto() {
-      if (this.profile.photo) {
-        return true
-      }
-      // otherwise just return false
-      return false
-    },
+    hasPhoto, 
     showPhoto() {
       return this.profile.photo
     },
