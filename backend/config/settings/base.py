@@ -125,6 +125,7 @@ PASSWORDLESS_AUTH = {
     ],
 }
 SUPPORT_EMAIL = env("DJANGO_SUPPORT_EMAIL", default="info@greening.digital")
+SUPPORT_CONTACT_NAME = env("DJANGO_SUPPORT_CONTACT_NAME", default="Chris Adams")
 
 
 

@@ -9,6 +9,7 @@ from django.utils.translation import ugettext_lazy as _
 from sorl.thumbnail import get_thumbnail
 from taggit.managers import TaggableManager
 from taggit.models import TagBase, TaggedItemBase
+from django.contrib.sites.models import Site
 
 
 class User(AbstractUser):
@@ -95,15 +96,14 @@ class Profile(models.Model):
         )
 
     def generate_invite_mail(self):
-        support_email_address = settings.SUPPORT_EMAIL
-
-        rendered_invite_txt = render_to_string(
-            "invite_new_profile.txt",
-            {"profile": self, "support_email_address": support_email_address},
-        )
-        rendered_invite_html = render_to_string(
-            "invite_new_profile.mjml.html",
-            {"profile": self, "support_email_address": support_email_address},
-        )
+        ctx = {
+            "profile": self,
+            "support_email_address": settings.SUPPORT_EMAIL,
+            "support_contact_name": settings.SUPPORT_CONTACT_NAME,
+            "site_url": f"https://{Site.objects.get_current().domain}",
+            "site_name": Site.objects.get_current().name,
+        }
+        rendered_invite_txt = render_to_string("invite_new_profile.txt", ctx)
+        rendered_invite_html = render_to_string("invite_new_profile.mjml.html", ctx)
 
         return {"text": rendered_invite_txt, "html": rendered_invite_html}

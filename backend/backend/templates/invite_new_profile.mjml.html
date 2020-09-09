@@ -3,25 +3,32 @@
 {% mjml %}
 <mjml>
     <mj-head>
-        <mj-title>Welcome to the Icebreaker One Constellatation</mj-title>
+        <mj-title>Welcome to the {{ site_name }} </mj-title>
     </mj-head>
     <mj-body>
         <mj-section>
             <mj-column >
-                <mj-text font-size="24px" line-height=1.5>
+                <mj-text font-size="20px" line-height=1.5>
                 <p>
                     Dear {{profile.name}},
                 </p>
                 <p>
-                    Welcome to the Icebreaker One constellation.
+                    Welcome to the Icebreaker CL8 software. This is an invite-only directory for members and partners of Icebreaker One.
                 </p>
                 <p>
-                    <em>(Copy goes here to mention terms of service and community guidelines)</em>
+                <p>To create your profile please click
+                    <a href="{{ site_url }}">here</a>:
+                </p>
+                <p>
+                    <a href="{{ site_url }}">{{ site_url }}</a>
                 </p>
 
                 <p>
-                    If you have any problems logging in, or you have not attempted to log in, please <a href="mailto:{{ support_email_address }}">contact support.</a>
+                    If you are not expecting this email, or are confused by its contents, please reply to this email/contact <a href="mailto:{{ support_email_address }}">{{ support_contact_name }} on {{ support_email_address }}.</a>
                 </p>
+                <p> Best Wishes,</p>
+                <p>{{ support_contact_name }}</p>
+
             </mj-text>
             </mj-column>
         </mj-section>
