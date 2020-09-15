@@ -20,6 +20,54 @@
           "signinButton": "Sign in",
           "resetButton": "Reset"
         }
+      },
+      "addUser": {
+        "name": "Name (required)",
+        "email": "Email (required)",
+        "hone": "Phone",
+        "websiteMessage": "(http:// is added automatically)",
+        "twitterMessage": "(just add your @username)",
+        "facebookMessage": "(ditto for Facebook)",
+        "linkedInMessage": "(just the bit after http://www.linked.com/in/)",
+        "sendInvite": "Send the user an invite mail for this constellation"
+      },
+      "profileDetail": {
+        "editProfile": "Edit Profile",
+        "resendInvite": "Re-send Invite",
+        "clusterMember": "Is a member of the following clusters"
+      },
+      "profileEdit": {
+        "profileVisible": "Your profile is visible to other members",
+        "profileHidden": "Your profile is hidden from other members",
+        "name": "Name",
+        "nameMessage": "(use your full name to make you easier to find)",
+        "email": "Email",
+        "emailMessage": "(You are unable to change your email address.)",
+        "phone": "Phone",
+        "phoneMessage": "(include the country code i.e. +44 78945 123 456)",
+        "organisation": "Organisation",
+        "linkedInMessage": "(it normally looks like http://www.linked.com/in/some-name-or-id)",
+        "clusters": "Clusters",
+        "clusterMessage": "(list the clusters you want to be part of)"
+      },
+      "profileTagsComponent": {
+        "tagsPlaceholder": "add a new tag"
+      },
+      "shared": {
+        "about": "About",
+        "twitter": "Twitter",
+        "facebook": "Facebook",
+        "linkedIn": "LinkedIn",
+        "website": "Website",
+        "markdownMessage": "For formatting tips, see: ",
+        "bioPlaceholder": "Summary of interests and expertise relevant to Icebreaker One",
+        "tags": "Skills and Interests",
+        "tagMessage": "(type below to add new tags)",
+        "visible": "Visible",
+        "invisible": "Invisible",
+        "hidden": "Hidden",
+        "save": "Save",
+        "cancel": "Cancel"
       }
     }
   }
